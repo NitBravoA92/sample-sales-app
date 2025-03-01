@@ -1,7 +1,5 @@
 package com.softwaredevone.sample_sales_app.api.v1.purchase;
 
-import com.softwaredevone.sample_sales_app.api.v1.products.Product;
-import com.softwaredevone.sample_sales_app.api.v1.products.ProductService;
 import com.softwaredevone.sample_sales_app.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
