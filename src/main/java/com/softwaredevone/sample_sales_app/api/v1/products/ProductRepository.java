@@ -1,4 +1,4 @@
-package com.softwaredevone.sample_sales_app.api.products.v1;
+package com.softwaredevone.sample_sales_app.api.v1.products;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

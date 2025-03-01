@@ -1,4 +1,4 @@
-package com.softwaredevone.sample_sales_app.api.products.v1;
+package com.softwaredevone.sample_sales_app.api.v1.products;
 
 import com.softwaredevone.sample_sales_app.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
