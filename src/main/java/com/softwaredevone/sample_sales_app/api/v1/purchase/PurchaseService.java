@@ -40,11 +40,11 @@ public class PurchaseService {
         Purchase SelectedPurchase = this.getOnePurchase(id);
 
         // update purchase
-        SelectedPurchase.setProductId(purchase.getProductId());
+        //SelectedPurchase.setProductId(purchase.getProductId());
         SelectedPurchase.setPurchaseCode(purchase.getPurchaseCode());
         SelectedPurchase.setPurchaseDateTime(purchase.getPurchaseDateTime());
         SelectedPurchase.setSupplier(purchase.getSupplier());
-        SelectedPurchase.setQuantity(purchase.getQuantity());
+        //SelectedPurchase.setQuantity(purchase.getQuantity());
         SelectedPurchase.setTotalPaid(purchase.getTotalPaid());
 
         return repository.save(SelectedPurchase);
@@ -56,9 +56,11 @@ public class PurchaseService {
         // update selected purchase data
         dataUpdated.forEach((key, value) -> {
             switch (key) {
+                /*
                 case "productId":
                     SelectedPurchase.setProductId((Long) value);
                     break;
+                    */
                 case "purchaseCode":
                     SelectedPurchase.setPurchaseCode((String) value);
                     break;
@@ -68,9 +70,11 @@ public class PurchaseService {
                 case "supplier":
                     SelectedPurchase.setSupplier((String) value);
                     break;
-                case "quantity":
+                    /*
+                    case "quantity":
                     SelectedPurchase.setQuantity((int) value);
                     break;
+                    */
                 case "totalPaid":
                     SelectedPurchase.setTotalPaid((double) value);
                     break;

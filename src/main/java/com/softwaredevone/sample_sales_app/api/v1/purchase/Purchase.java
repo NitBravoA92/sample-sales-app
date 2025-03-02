@@ -7,10 +7,10 @@ public class Purchase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    /*
     @Column(nullable = false)
     private Long productId;
-
+    */
     @Column(nullable = false, unique = true)
     private String purchaseCode;
 
@@ -19,21 +19,21 @@ public class Purchase {
 
     @Column(nullable = false)
     private String supplier;
-
+/*
     @Column(nullable = false)
     private int quantity;
-
+*/
     @Column(nullable = false)
     private double totalPaid;
 
     public Purchase() {}
-    public Purchase(Long id, Long productId, String purchaseCode, LocalDateTime purchaseDateTime, String supplier, int quantity, double totalPaid) {
+    public Purchase(Long id, String purchaseCode, LocalDateTime purchaseDateTime, String supplier, double totalPaid) {
         this.id = id;
-        this.productId = productId;
+        //this.productId = productId;
         this.purchaseCode = purchaseCode;
         this.purchaseDateTime = purchaseDateTime;
         this.supplier = supplier;
-        this.quantity = quantity;
+        //this.quantity = quantity;
         this.totalPaid = totalPaid;
     }
 
@@ -44,7 +44,7 @@ public class Purchase {
     public void setId(Long id) {
         this.id = id;
     }
-
+/*
     public Long getProductId() {
         return productId;
     }
@@ -52,7 +52,7 @@ public class Purchase {
     public void setProductId(Long productId) {
         this.productId = productId;
     }
-
+*/
     public String getPurchaseCode() {
         return purchaseCode;
     }
@@ -76,7 +76,7 @@ public class Purchase {
     public void setSupplier(String supplier) {
         this.supplier = supplier;
     }
-
+/*
     public int getQuantity() {
         return quantity;
     }
@@ -84,7 +84,7 @@ public class Purchase {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-
+*/
     public double getTotalPaid() {
         return totalPaid;
     }
