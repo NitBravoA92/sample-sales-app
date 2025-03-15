@@ -2,6 +2,8 @@ package com.softwaredevone.sample_sales_app.api.v1.purchaseProduct;
 
 import com.softwaredevone.sample_sales_app.api.v1.purchase.Purchase;
 import com.softwaredevone.sample_sales_app.exceptions.ResourceNotFoundException;
+import com.softwaredevone.sample_sales_app.serialization.ApiResponse;
+import com.softwaredevone.sample_sales_app.serialization.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +23,14 @@ public class PurchaseProductsController {
     }
 
     @GetMapping
-    public List<PurchaseProducts> getProductsByPurchaseId(@RequestParam Long purchaseId) {
-        return purchaseProductService.getAllProductsByPurchaseId(purchaseId);
+    public ApiResponse<PurchaseProducts> getProductsByPurchaseId(@RequestParam Long purchaseId, @RequestParam(defaultValue = "1") int page,
+                                             @RequestParam(defaultValue = "10") int pageSize) {
+
+        List<PurchaseProducts> data = purchaseProductService.getAllProductsByPurchaseId(purchaseId);
+        Pagination pagination = new Pagination(page, pageSize);
+        ApiResponse<PurchaseProducts> response = new ApiResponse<>(data, data.size(), pagination);
+
+        return response;
     }
 
     @GetMapping("/{id}")
