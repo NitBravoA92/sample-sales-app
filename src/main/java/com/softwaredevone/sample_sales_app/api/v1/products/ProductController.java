@@ -1,6 +1,8 @@
 package com.softwaredevone.sample_sales_app.api.v1.products;
 
 import com.softwaredevone.sample_sales_app.exceptions.ResourceNotFoundException;
+import com.softwaredevone.sample_sales_app.serialization.ApiResponse;
+import com.softwaredevone.sample_sales_app.serialization.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +23,14 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<Product> getProducts() {
-        return productService.getAllProducts();
+    public ApiResponse<Product> getProducts(@RequestParam(defaultValue = "1") int page,
+                                     @RequestParam(defaultValue = "10") int pageSize) {
+
+        List<Product> data = productService.getAllProducts();
+        Pagination pagination = new Pagination(page, pageSize);
+        ApiResponse<Product> response = new ApiResponse<>(data, data.size(), pagination);
+
+        return response;
     }
 
     @GetMapping("/{id}")
